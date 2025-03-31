@@ -17,11 +17,12 @@ html {
 .button {
   font-size: 20px;
   padding: 10px 20px;
-  display: inline-flex;
-  align-content: center;
+  display: flex;
+  align-items: center;
   justify-content: center;
   text-align: center;
   white-space: nowrap;
+  width: fit-content;
 }
 
 .image-container {
@@ -32,39 +33,68 @@ html {
   display: block;
 }
 
-/* @media only screen and (max-width: 760px) {
+@media only screen and (max-width: 760px) {
   .main-content {
     top: 2.5625rem;
   }
-} */
+} 
 
 /* Header */
 
 header {
   display: flex;
   position: fixed;
+  top: 3;
+  left: 0;
   width: 100%;
   border-bottom: solid 1px #c6c1c1;
   background-color: white;
+  z-index: 1000;
+  height: 85px;
+  outline: 0.5px solid black;
 }
 
 header .content {
   display: flex;
+  width: 100%;
   align-items: center;
-  padding: 1.875rem;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding: 1.5rem 1.875rem;
 }
 
 header .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4a4a4a;
+  font-family: system-ui, 'Segoe UI', Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
   flex: 1;
+  justify-content: flex-start;
+  margin-right: 30px;
+  align-items: center;
 }
 
 header nav ul {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
+  gap: 0;
+  padding: 0;
+}
+
+nav .logo {
+  margin-right: 30px;
+  margin-left: 0;
+  padding-right: 30px;
+  padding-left: 0;
 }
 
 nav li {
   padding-left: 3.5rem;
+}
+
+nav a:hover {
+  border-bottom: 2px solid #4a4a4a;
 }
 
 nav a {
@@ -79,11 +109,24 @@ header .icon {
   padding-left: .75rem;
 }
 
+.social a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #4a4a4a;
+}
+
+.icon {
+  width: 20px;
+  height: auto;
+}
+
 header .mobile {
   display: none;
 }
 
-/* @media only screen and (max-width: 760px) {
+@media only screen and (max-width: 760px) {
   header .desktop {
     display: none;
   }
@@ -95,6 +138,7 @@ header .mobile {
 
   header .content {
     padding: .5rem 0;
+    flex-direction: column;
   }
 
   header .mobile ul {
@@ -114,7 +158,7 @@ header .mobile {
     line-height: 1.6;
     color: white;
   }
-} */
+}
 
 /* Sign Up Section */
 
@@ -123,6 +167,12 @@ header .mobile {
   justify-content: flex-start;
   align-items: flex-start;
   height: 43.5rem;
+  width: 100%;
+  background-image: url("../images/banner-landingpage.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
 #sign-up-cta {
@@ -133,7 +183,6 @@ header .mobile {
   position: absolute;
   top: 170px;
   left: 100px;
-  height: ;
 }
 
 #sign-up-cta .content {
@@ -167,8 +216,8 @@ header .mobile {
 }
 
 #sign-up-cta .button {
-  width: 100%;
-  max-width: 108px;
+  width: auto;
+  min-width: 108px;
   height: 24px;
   margin-top: 1.625rem;
   padding: 1.25rem 7.25rem;
@@ -177,23 +226,28 @@ header .mobile {
   border-radius: 4px;
 }
 
-#sign-up-cta:hover .button {
+#sign-up-cta .button:hover {
   border: 1px solid white;
   color: black;
   background-color: wheat;
   filter: drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.9));
 }
 
-/*@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 760px) {
   #sign-up-section {
     align-items: center;
     justify-content: center;
-    height: 28rem;
+    height: auto;
+    padding: 2rem;
+  }
+
+  #sign-up-cta button {
+    width: 100%;
   }
 
   #sign-up-cta {
     position: static;
-    width: auto;
+    width: 90%;
     height: auto;
     background-color: #9dc20b;
     border: none;
@@ -214,9 +268,9 @@ header .mobile {
   #sign-up-cta h2 {
     font-size: 2.25rem;
   }
-} */
+} 
 
-/* @media only screen and (max-width: 450px) {
+@media only screen and (max-width: 450px) {
   #sign-up-section {
     height: 20rem;
   }
@@ -228,28 +282,36 @@ header .mobile {
   #sign-up-cta h2 {
     font-size: 2rem;
   }
-} */
+} 
 
 /* Features Section */
 
 #features-section {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 38px;
   padding: 4rem 5%;
   background-color: #f3f3f3;
 }
 
 .feature {
   flex: 1;
-  padding: 2rem;
-  margin: 0px 1.25rem;
+  padding: 1.5rem;
   background-color: white;
 }
 
 .feature .image-container {
+  justify-content: center;
   width: 90%;
   height: 65%;
   margin: 0 auto;
+  padding: 1rem 0rem 1rem 8rem;
+}
+
+.feature .image-container img {
+  width: 20.5rem;
+  height: 65%;
+  object-fit: cover;
 }
 
 .feature h2 {
@@ -267,7 +329,7 @@ header .mobile {
   margin-bottom: 10px;
 }
 
-/* @media only screen and (max-width: 890px) {
+@media only screen and (max-width: 890px) {
   .feature h2 {
     font-size: 1.125rem;
     line-height: 1.3;
@@ -282,15 +344,17 @@ header .mobile {
 
 @media only screen and (max-width: 760px) {
   #features-section {
-    flex-flow: column;
-    padding: 0;
+    flex-direction: column;
+    gap: 20px;
+    padding: 2rem 5%;
   }
 
   .feature {
     margin: 0;
+    width: 100%;
     padding: 1.25rem 1rem 0 1rem;
   }
-} */
+} 
 
 /* Filters Section */
 
@@ -306,17 +370,19 @@ header .mobile {
 
 #filters-section .content {
   padding: 0 .625rem;
-  margin-bottom: 5rem;
+  margin-bottom: 80px;
+  margin-top: 64px;
+  line-height: 1.2;
 }
 
 #filters-section .content h2 {
-  font-size: 2.25rem;
+  font-size: 36px;
   font-weight: bold;
   color: white;
 }
 
 #filters-section .content h3 {
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 1.4;
   font-weight: 300;
   color: white;
@@ -333,12 +399,12 @@ header .mobile {
 
 #filters-section .images-container img {
   width: 100%;
-  max-width: 150px;
+  max-width: 360px;
   height: auto;
   object-fit: cover;
 }
 
-/* @media only screen and (max-width: 760px) {
+ @media only screen and (max-width: 760px) {
   #filters-section {
     padding: 2rem 5%;
   } 
@@ -362,7 +428,7 @@ header .mobile {
   #filters-section .extra {
     display: none;
   }
-} */
+} 
 
 /* Quotes Section */
 
@@ -387,7 +453,7 @@ header .mobile {
   height: 1.875rem;
 }
 
-/* @media only screen and (max-width: 760px) {
+ @media only screen and (max-width: 760px) {
   #quotes-section .content {
     padding: 1.875rem .625rem;
   }
@@ -402,7 +468,7 @@ header .mobile {
     padding-top: 1rem;
     margin: auto;
   }
-} */
+} 
 
 /* Footer */
 
@@ -412,17 +478,18 @@ footer {
 }
 
 footer .content {
+  font-family: roboto, regular;
   color: white;
   display: flex;
-  font-size: .75rem;
+  font-size: 12px;
 }
 
 footer .copyright {
   flex-grow: 1;
 }
 
-/* @media only screen and (min-width: 760px) {
+ @media only screen and (min-width: 760px) {
   footer .content {
     font-size: .625rem;
   }
-} */
+} 
